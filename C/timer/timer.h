@@ -1,41 +1,20 @@
-#include "stdafx.h"
-#include "Timer.h"
-#include<cmath>
-
-Timer::Timer()
+#pragma once
+#include<ctime>
+#include<iostream>
+using namespace std;
+class Timer
 {
-	start = clock();
-}
+public:
+	Timer();
+	~Timer();
+	void setstart();
+	bool gap(int gap);
+	int getgap();
+private:
+	double reg_time;
+	double sum_time;
+	clock_t start;
+	clock_t finish;
+	
+};
 
-
-Timer::~Timer()
-{
-}
-
-void Timer::setstart()
-{
-	start = clock();
-}
-
-bool Timer::gap(int gap)
-{
-	finish = clock();
-	double duration = (double)(finish - start);
-	while (duration - gap > 10)
-		duration -= 10;
-	if (abs(duration - gap) <= 10)
-	{
-		start = finish;
-		return true;
-	}
-	else
-		return false;
-}
-
-int Timer::getgap()
-{
-	finish = clock();
-	int duration = finish - start;
-	start = finish;
-	return duration;
-}
