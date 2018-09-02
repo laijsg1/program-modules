@@ -1,0 +1,41 @@
+int Toint(const char * str)
+{
+	int sum = 0;
+	int length = len(str);
+	if (str[0] == '-')
+	{
+		for (int i = length; i > 0; i--)
+		{
+			sum += (str[i] - 48)*pow(10, length - i);
+		}
+		sum = -sum;
+	}
+	else if (str[0] >= 48 && str[0] < 58)
+	{
+		for (int i = length; i >= 0; i--)
+		{
+			sum += (str[i] - 48)*pow(10, length - i);
+		}
+	}
+	else
+		cout << "wrong!!!!!" << endl;
+	return sum;
+}
+int Toint(const char * str)
+{
+	int sum = 0;
+	int length = len(str);
+	for (int j = len ; j >= 0; j--)
+		{
+			if (str[j] != '-')
+				sum += (str[j] - 48)*pow(10, len - j );
+			else
+				sum *= -1;
+			
+		}
+	return sum;
+}
+		
+		
+
+		
