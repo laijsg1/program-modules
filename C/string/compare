@@ -1,0 +1,30 @@
+bool compare(char * s1, char * s2)
+{
+	bool n1 = 1;
+	if (len(s1) == len(s2))
+	{
+		for (int i = 0; i <= len(s1); i++)
+		{
+			if (s1[i] != s2[i])
+				n1 = 0;
+		}
+	}
+	else
+		n1 = 0;
+	return n1;
+}
+
+bool compare(char * s1, const char * s2, int pos)
+{
+	bool n1 = 1;
+	int length = len(s1);
+	if (pos - length < 0)
+		return 0;
+	for (int i = 0; i <= length; i++)
+	{
+		if (s1[i] != s2[pos + i - length])
+			n1 = 0;
+		
+	}
+	return n1;
+}
