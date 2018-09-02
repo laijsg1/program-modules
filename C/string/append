@@ -1,0 +1,18 @@
+void append(char *&s1, char * s2)
+{
+	int n = len(s1) + len(s2)+3;
+	//cout << "appending......" << endl;
+	//cout << "------------- totall append " << n << "chars --------------" << endl;
+	char *s = new char[n];
+	for (int i = 0; i < n; i++)
+	{
+		
+		if (i <= len(s1))
+			s[i] = s1[i];
+		else
+			s[i] = s2[i-len(s1)-1];
+	}
+	
+	delete s1;
+	s1 = s;
+}
