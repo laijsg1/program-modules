@@ -1,0 +1,24 @@
+int len(char * str)
+{
+	int i=0;
+	while (1)
+	{
+		if (str[i] == '\0')
+			break;
+		i++;
+	}
+	return i-1;
+}
+
+int len(const char * str)
+{
+	int i = 0;
+	while (1)
+	{
+		if (str[i] == '\0')
+			break;
+		i++;
+	}
+	return i - 1;
+}
+//返回的是实际长度再减一

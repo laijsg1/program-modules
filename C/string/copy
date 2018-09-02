@@ -1,0 +1,59 @@
+void copy(char *& s1, const char *s2)		//普通复制
+{
+	if(s1)
+		delete s1;
+	s1 = new char[len(s2) + 1];
+	for (int i = 0; i <= len(s2)+1; i++)
+		s1[i] = s2[i];
+}
+
+void copy(char *& s1, const char * s2, int pos, int length, int dirt=1)	//指定位置、长度、默认向后复制
+{
+	if(s1)
+		delete s1;
+	s1 = new char[length + 2];
+	if (pos<0 || pos>len(s2) || pos + length > len(s2)) {
+		std::cout << "copy 重载函数 出错" << std::endl;
+		length = -1;
+	}
+	else
+	{
+		for (int i = 0; i <=length; i++)
+			{
+				s1[i] = s2[pos + i];
+			}
+			s1[length + 1] = '\0';
+	}
+	
+}
+
+void copy(char *& s1, const char * s2, int pos, char split, int dirt=1)	//指定位置、分隔符、默认向后复制
+{
+	if (s1)
+		delete s1;
+	int length =0;
+	for (int i = pos; ; i+=dirt)
+	{
+		if (s2[i] == split||i<0||i>len(s2))
+			break;
+		length++;
+	}
+	s1 = new char[length+1];
+	if (dirt > 0)
+	{
+		for (int i = pos; i < pos + length; i++)
+		{
+			s1[i- pos] = s2[i];
+		}
+				
+	}
+	else
+	{
+		for (int i = pos - length + 1; i <= pos; i++)
+		{
+			s1[i- (pos - length + 1)] = s2[i];
+		}
+			
+	}
+	s1[length] = '\0';
+}
